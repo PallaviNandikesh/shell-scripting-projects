@@ -1,5 +1,16 @@
 #!/bin/bash
 
+###########################
+#About: script to get the list of users from the GITHUB using the Github API modules
+#INPUT: we have to provide the OWNER AND REPOS name whike running the shell Script as command line args, and you have to export user name and tokens for github
+#Pre-requisites: we have to insatll jq --- $ sudo apt install jq -y
+#
+#
+#############################
+
+# helper fuction
+helper()
+
 # GitHub API URL
 API_URL="https://api.github.com"
 
@@ -34,6 +45,12 @@ function list_users_with_read_access {
         echo "Users with read access to ${REPO_OWNER}/${REPO_NAME}:"
         echo "$collaborators"
     fi
+}
+
+function helper{
+expected_cmd_args=2
+if[$# -ne $expected_cmd_args]; then
+echo "please execute the script with cmd args"
 }
 
 # Main script
